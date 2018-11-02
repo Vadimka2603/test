@@ -1,0 +1,34 @@
+section, div, header {
+	display: block;
+}
+
+#wrapper {
+	max-width: 1920px;
+	min-width: 320px;
+	width: 100%;
+	height: 100px;
+	margin: 0 auto;
+}
+
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 7.8125%;
+	height: 100%;
+	background: #f6f6f6;
+
+}
+
+#content {
+	position: absolute;
+	top:0;
+	right: 0px;
+	width: 92.1875%;
+	height: 100px;
+	background: red;
+}
+
+#footer {
+	height: 60px;
+}
