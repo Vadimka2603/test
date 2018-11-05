@@ -21,5 +21,5 @@ begin
 	puts "Вывод не целого:"
 	puts date_in_future([])
 rescue LoadError
-	puts "не подключенна"
+	puts "active_support не подключенна"
 end

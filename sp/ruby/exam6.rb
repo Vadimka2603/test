@@ -27,25 +27,27 @@ questarrays = [
 
 b = [%w[player1 P], %w[player2 S]]
 
+
+# класс для ошибки WrongNumberOfPlayersError
 class WrongNumberOfPlayersError < Exception  
 end
-
+# класс для ошибки NoSuchStrategyError
 class NoSuchStrategyError < Exception  
 end
-
+# вызов своей ошибки с своим текстом
 def players(x)
   raise WrongNumberOfPlayersError, "WrongNumberOfPlayersError #{x}"
 end
-
+# вызов своей ошибки с своим текстом
 def strategy
 	raise NoSuchStrategyError, "NoSuchStrategyError "
 end
 
 def go_win(array)
-	move_p1 = array[0][1]
-	move_p2 = array[1][1]
-	p1 = array[0][0]
-	p2 = array[1][0]
+	move_p1 = array[0][1] # ход первого игрока
+	move_p2 = array[1][1] # ход второго игрока
+	p1 = array[0][0] # имя первого игрока
+	p2 = array[1][0] # имя второго игрока 
 	if move_p1 == "R" or move_p1 == "P" or move_p1 == "S" or move_p2 == "R" or move_p2 == "P" or move_p2 == "S"
 		if move_p1 == move_p2
 			puts "Ничья! Но победил игрок: "+p1+" его ход: "+move_p1
@@ -66,10 +68,12 @@ def go_win(array)
 	end
 end
 
-
-def go(array)
+# проверяем на количество элементов массива,
+# если != 2 то массивы сформированны не корректно
+# и сыграть по правилам не получится 
+def go(array) 
 	i = 0
-	array.each{|elem|
+	array.each{|elem| 
 		if elem.length == 2
 			puts "все корректно"
 			i += 1
@@ -94,12 +98,11 @@ end
 
 
 def rps_game_winner(array)
-	#проверим структуру массива, два массива по два члена в каждом
 	if array.class == Array
 		if array.empty?
 			puts "Вы передали пустой массив"
 		else
-			if array.length == 2
+			if array.length == 2 # проверяем действительно ли переданно два массива, иначе игроков больше вызываем исключение
 				if go(array) == true
 					puts "Начинаем игру"
 					go_win(array)
